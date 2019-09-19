@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neuro-evolving Flappy Bird</title>
+  <link rel="stylesheet" type="text/css" href="resources/style/style.css">
+  <script src="sketch.js"></script>
+  <script src="model/bird.js"></script>
+  <script src="model/pipePair.js"></script>
+  <script src="neuroEvolution/nn.js"></script>
+  <script src="neuroEvolution/ga.js"></script>
+  <script src="lib/p5.js"></script>
+  <script src="lib/p5.dom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.2.7/dist/tf.min.js"></script>
+</head>
+
+<body>
+  <h1>Neuro-evolving Flappy Bird</h1>
+  <div id="canvasDiv"></div>
+
+  <div class="infoDiv">
+    <label>Generation n. </label>
+    <span id="genNum">1</span><br>
+    <label>Birds alive: </label>
+    <span id="birdsAlive">500</span><br>
+  </div>
+
+  <div class="infoDiv">
+    <label>Best score in this run: </label>
+    <span id="bestScoreRun">0</span><br>
+    <label>Best score ever: </label>
+    <span id="bestScoreEver">0</span>
+  </div>
+  
+  <div class="infoDiv">
+    <input id="pause" type="image" src="resources/img/pause.png" height="32" width="32" onclick="pause()"><br>
+    <label>Speed:</label><br>
+    <span>0</span>
+    <div id="slideDiv"></div>
+    <span>10</span>
+  </div>
+</body>
+
+</html>

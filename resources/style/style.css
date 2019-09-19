@@ -1,0 +1,15 @@
+body {
+    font-family: Roboto Light, sans-serif;
+}
+
+.infoDiv {
+    padding: 10px;
+}
+
+#canvasDiv {
+    float: left;
+}
+
+#slideDiv {
+    display: inline-block;
+}
