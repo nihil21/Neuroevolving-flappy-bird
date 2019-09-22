@@ -1,4 +1,4 @@
-const POPULATION_SIZE = 250;
+const POPULATION_SIZE = 300;
 let latestGen = [];
 let birds = [];
 let pipes = [];
