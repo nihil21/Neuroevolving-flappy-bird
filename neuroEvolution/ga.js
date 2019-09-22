@@ -1,7 +1,7 @@
 // Probabilità di mutazione
 const p_m = 0.01;
 // Probabilità di crossover
-const p_c = 0.7;
+const p_c = 0.75;
 
 function evolve(birds, POPULATION_SIZE, latestGen) {
     calculateFitness(latestGen);
