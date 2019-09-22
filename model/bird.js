@@ -85,12 +85,12 @@ class Bird {
     }
 
     crossover(partner, rate) {
-        let childs = [];
+        let children = [];
         let childA = this.clone();
         let childB = this.clone();
 
-        childs.push(childA);
-        childs.push(childB);
+        children.push(childA);
+        children.push(childB);
 
         if (Math.random() < rate) {
             let parentA_ih_dna = this.brain.weights_ih.dataSync();
@@ -98,11 +98,12 @@ class Bird {
             let parentB_ih_dna = partner.brain.weights_ih.dataSync();
             let parentB_ho_dna = partner.brain.weights_ho.dataSync();
 
-            let crossPoint = Math.floor(Math.random() * parentA_ih_dna.length);
-            let childA_ih_dna = [...parentA_ih_dna.slice(0, crossPoint), ...parentB_ih_dna.slice(crossPoint, parentB_ih_dna.length)];
-            let childA_ho_dna = [...parentA_ho_dna.slice(0, crossPoint), ...parentB_ho_dna.slice(crossPoint, parentB_ho_dna.length)];
-            let childB_ih_dna = [...parentB_ih_dna.slice(0, crossPoint), ...parentA_ih_dna.slice(crossPoint, parentA_ih_dna.length)];
-            let childB_ho_dna = [...parentB_ho_dna.slice(0, crossPoint), ...parentA_ho_dna.slice(crossPoint, parentA_ho_dna.length)];
+            let crossPoint_ih = Math.floor(Math.random() * parentA_ih_dna.length);
+            let crossPoint_ho = Math.floor(Math.random() * parentA_ho_dna.length);
+            let childA_ih_dna = [...parentA_ih_dna.slice(0, crossPoint_ih), ...parentB_ih_dna.slice(crossPoint_ih, parentB_ih_dna.length)];
+            let childA_ho_dna = [...parentA_ho_dna.slice(0, crossPoint_ho), ...parentB_ho_dna.slice(crossPoint_ho, parentB_ho_dna.length)];
+            let childB_ih_dna = [...parentB_ih_dna.slice(0, crossPoint_ih), ...parentA_ih_dna.slice(crossPoint_ih, parentA_ih_dna.length)];
+            let childB_ho_dna = [...parentB_ho_dna.slice(0, crossPoint_ho), ...parentA_ho_dna.slice(crossPoint_ho, parentA_ho_dna.length)];
 
             let wih_shape = this.brain.weights_ih.shape;
             let who_shape = this.brain.weights_ho.shape;
@@ -115,7 +116,7 @@ class Bird {
             childB.brain.weights_ho = tf.tensor(childB_ho_dna, who_shape);
         }
         
-        return childs;
+        return children;
     }
 
     dispose() {
